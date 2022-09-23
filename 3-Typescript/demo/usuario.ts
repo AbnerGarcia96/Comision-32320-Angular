@@ -20,4 +20,8 @@ export class Usuario extends Persona implements Inscripcion{
     inscribir(){
         return 'Inscribiendo usuario';
     }
+
+    obtenerCorreo(){
+        return this.correo;
+    }
 }

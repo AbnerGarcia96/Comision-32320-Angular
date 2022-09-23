@@ -31,6 +31,9 @@ var Usuario = /** @class */ (function (_super) {
     Usuario.prototype.inscribir = function () {
         return 'Inscribiendo usuario';
     };
+    Usuario.prototype.obtenerCorreo = function () {
+        return this.correo;
+    };
     return Usuario;
 }(persona_1.Persona));
 exports.Usuario = Usuario;

@@ -1,0 +1,64 @@
+<h1>Directivas de atributo</h1>
+<h2>Directiva ngClass</h2>
+
+<p class="grande" [ngClass]="variable1 < 5 ? 'texto-error' : 'texto-exito'">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+<p [class.texto-error]="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+<p [ngClass]="variable1 < 5 ? 'texto-error' : variable1 === 5 ? 'Texto-exito' : ''">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+<hr>
+
+<h2>Directiva ngStyle</h2>
+
+<p [style.border]="variable2 === 5 ? '1px solid black': '1px solid red'">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+<hr>
+
+<h2>Directiva personalizada</h2>
+
+<p appDirectivaPersonalizada>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+<hr>
+
+<h1>Directivas estructurales</h1>
+<h2>Directiva NgFor</h2>
+<p>{{ listaNombres }}</p>
+
+<ul>
+    <li *ngFor="let nombre of listaNombres">
+       {{ nombre.nombre }} - {{ nombre.edad }} 
+    </li>
+</ul>
+
+<hr>
+
+<h2>Directiva NgIf</h2>
+<ol>
+    <div *ngFor="let persona of listaNombres">
+    <li *ngIf="persona.edad > 18 || persona.nombre === 'Ijak'">
+        <div>{{ persona.nombre }} - {{ persona.edad }} </div>
+    </li>
+    </div>
+</ol>
+
+<hr>
+
+<h2>Directiva NgSwitch</h2>
+
+<div [ngSwitch]="usuarioActivo.nombre">
+    <div *ngSwitchCase="'Lautaro'">Usuario activo es Lautaro</div>
+    <div *ngSwitchCase="'Abner'">Usuario activo es Abner</div>
+    <div *ngSwitchDefault>Usuario activo es {{ usuarioActivo.nombre }}</div>
+</div>
+
+<hr>
+
+<h2>Pipes</h2>
+<p>{{ fecha | date:'dd/MM/yy' }}</p>
+<ol>
+    <div *ngFor="let persona of listaNombres">
+    <li>
+        <div> {{ persona | json }} </div>
+        <div> {{ persona.nombre }} </div>
+        <div> {{ persona.nombre | uppercase }} </div>
+        <div> {{ persona.nombre | lowercase }} </div>
+        <div> {{ persona.nombre | titlecase }} </div>
+    </li>
+    </div>
+</ol>
