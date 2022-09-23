@@ -18,7 +18,7 @@ export class DirectivasComponent implements OnInit {
     {nombre: 'Celeste', edad: 8},
     {nombre: 'Pablo', edad: 30},
     {nombre: 'Ijak', edad: 10},
-    {nombre: 'Fredy', edad: 15},
+    {nombre: 'Carlos', edad: 15},
   ];
   fecha: Date = new Date();
 
