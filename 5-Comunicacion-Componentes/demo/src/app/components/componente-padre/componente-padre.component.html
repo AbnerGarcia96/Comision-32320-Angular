@@ -1,0 +1,11 @@
+<div class="clase-padre">
+    <p>Este mensaje es desde el componente padre</p>
+    <app-componente-hijo 
+        [estudiantes]="estudiantesPadre" 
+        [funcionPrueba]="funcionPrueba"
+        (eventoSalida)="manejarEventoSalida($event)"
+        (eventoSalidaEstudiante)="agregarEstudiante($event)"
+    ></app-componente-hijo>
+    <p> {{ mensajeSalida }} </p>
+    <div #mensaje>Mensaje de prueba</div>
+</div>

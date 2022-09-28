@@ -62,3 +62,13 @@
     </li>
     </div>
 </ol>
+
+<hr>
+
+<h2>NgModel</h2>
+
+<input type="text" placeholder="Ingrese su nombre" [(ngModel)]="nombre">
+<p>Su nombre es: {{ nombre }}</p>
+
+<p>Valirable1 tiene un valor de {{ variable1 }}</p>
+<button (click)="manejarEvento()">Clickeame</button>

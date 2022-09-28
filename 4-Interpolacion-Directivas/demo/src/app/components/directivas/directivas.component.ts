@@ -7,6 +7,7 @@ import { Persona } from 'src/app/models/persona';
   styleUrls: ['./directivas.component.css']
 })
 export class DirectivasComponent implements OnInit {
+  nombre!: string;
   variable1: number = 10;
   variable2: number = 5;
   usuarioActivo: Persona = {
@@ -27,6 +28,11 @@ export class DirectivasComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  manejarEvento(){
+    this.nombre = '';
+    this.variable1 = Math.round(Math.random()*10);
   }
 
 }
