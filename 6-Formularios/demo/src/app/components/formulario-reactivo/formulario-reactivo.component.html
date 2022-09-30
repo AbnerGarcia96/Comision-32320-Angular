@@ -1,0 +1,39 @@
+<h1>Formulario Reactivo</h1>
+
+<form [formGroup]="formularioUsuario" (ngSubmit)="agregarUsuario()">
+    <div>
+        <label for="">Nombre:</label>
+        <input type="text" formControlName="nombre">
+        <p *ngIf="formularioUsuario.get('nombre')?.touched && formularioUsuario.get('nombre')?.errors?.['required']">El campo nombre es requerido</p>
+    </div>
+
+    <div>
+        <label for="">Correo:</label>
+        <input type="text" formControlName="correo">
+        <p *ngIf="formularioUsuario.get('correo')?.touched && formularioUsuario.get('correo')?.errors?.['required']">El campo correo es requerido</p>
+        <p *ngIf="formularioUsuario.get('correo')?.touched && formularioUsuario.get('correo')?.errors?.['pattern']">El formato del correo no es correcto</p>
+    </div>
+
+    <div>
+        <label for="">Contrasena:</label>
+        <input type="password" formControlName="contrasena">
+        <p *ngIf="formularioUsuario.get('contrasena')?.touched && formularioUsuario.get('contrasena')?.errors?.['required']">El campo contrasena es requerido</p>
+        <p *ngIf="formularioUsuario.get('contrasena')?.touched && formularioUsuario.get('contrasena')?.errors?.['minlength']">La contrasena debe tener al menos 5 caracteres</p>
+        <p *ngIf="formularioUsuario.get('contrasena')?.touched && formularioUsuario.get('contrasena')?.errors?.['pattern']">La contrasena debe tener al menos una mayuscula</p>
+    </div>
+
+    <div>
+        <label for="">Confirmar contrasena:</label>
+        <input type="password" formControlName="contrasena2">
+        <p *ngIf="formularioUsuario.get('contrasena2')?.touched && formularioUsuario.get('contrasena2')?.errors?.['required']">El campo contrasena es requerido</p>
+        <p *ngIf="formularioUsuario.get('contrasena2')?.touched && formularioUsuario.get('contrasena2')?.errors?.['minlength']">La contrasena debe tener al menos 5 caracteres</p>
+        <p *ngIf="!contrasenasIguales">Las contrasenas deben ser iguales</p>
+    </div>
+
+    <div>
+        <label for="">Admin:</label>
+        <input type="checkbox" formControlName="admin">
+    </div>
+
+    <button type="submit" [disabled]="formularioUsuario.invalid">Agregar usuario</button>
+</form>

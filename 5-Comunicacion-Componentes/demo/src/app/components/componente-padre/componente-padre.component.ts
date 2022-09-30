@@ -1,4 +1,4 @@
-import { AfterContentInit, AfterViewChecked, AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterContentInit, AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Estudiante } from 'src/app/models/estudiante';
 import { ComponenteHijoComponent } from '../componente-hijo/componente-hijo.component';
 
@@ -13,18 +13,20 @@ export class ComponentePadreComponent implements OnInit, AfterViewInit {
   @ViewChild('mensaje') mensajePruebaRef!: ElementRef;
   mensajeSalida: string = '';
   
-  constructor() {
+  constructor(
+    private deteccionCambios: ChangeDetectorRef
+  ) {
     console.log("Llamando desde el constructor: ", this.componenteHijo);
   }
 
   ngOnInit(): void {
     console.log("Llamando desde el ngOnInit: ", this.componenteHijo);
-    this.componenteHijo.usuarioActivo = { nombre: 'Pablo' }
   }
 
   ngAfterViewInit(): void {
     console.log("Llamando desde el ngAfterViewInit: ", this.componenteHijo);
-    
+    this.componenteHijo.usuarioActivo = { nombre: 'Pablo' };
+    this.deteccionCambios.detectChanges();
     console.log(this.mensajePruebaRef);
   }
 
