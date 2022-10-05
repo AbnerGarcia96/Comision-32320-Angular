@@ -1,0 +1,43 @@
+<h3>Ejemplo Mat Table</h3>
+
+<mat-form-field>
+    <mat-label>Filtrar</mat-label>
+    <input type="text" matInput (keyup)="filtrar($event)">
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource"> 
+    <!-- Nombre del curso -->
+    <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+    </ng-container>
+
+    <!-- Comision del curso -->
+    <ng-container matColumnDef="comision">
+        <th mat-header-cell *matHeaderCellDef>Comision</th>
+        <td mat-cell *matCellDef="let element">{{ element.comision }}</td>
+    </ng-container>
+
+    <!-- Nombre del profesor -->
+    <ng-container matColumnDef="profesor">
+        <th mat-header-cell *matHeaderCellDef>Profesor</th>
+        <td mat-cell *matCellDef="let element">{{ element.profesor }}</td>
+    </ng-container>
+
+    <!-- Acciones -->
+    <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef>
+            <button mat-icon-button (click)="editar()">
+                <mat-icon>edit</mat-icon>
+            </button>
+
+            <button mat-icon-button>
+                <mat-icon>delete</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+</table>

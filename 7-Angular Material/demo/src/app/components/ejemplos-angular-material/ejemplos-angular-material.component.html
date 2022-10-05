@@ -1,0 +1,67 @@
+<h3>Ejemplos botones</h3>
+<button mat-button (click)="manejarEvento()">Prueba</button>
+<button mat-button color="primary">Prueba</button>
+<button mat-button color="accent">Prueba</button>
+<button mat-button color="warn">Prueba</button>
+
+<br>
+
+<button mat-flat-button>Prueba</button>
+<button mat-flat-button color="primary">Prueba</button>
+<button mat-flat-button color="accent">Prueba</button>
+<button mat-flat-button color="warn">Prueba</button>
+
+<br>
+
+<button mat-raised-button class="button">Prueba</button>
+<button mat-raised-button color="primary">Prueba</button>
+<button mat-raised-button color="accent">Prueba</button>
+<button mat-raised-button color="warn">Prueba</button>
+
+<br>
+
+<button mat-stroked-button>Prueba</button>
+<button mat-stroked-button color="primary">Prueba</button>
+<button mat-stroked-button color="accent">Prueba</button>
+<button mat-stroked-button color="warn">Prueba</button>
+
+<hr>
+
+<h3>Ejemplos cards</h3>
+
+<mat-form-field>
+    <mat-label>Filtrar:</mat-label>
+    <input type="text" placeholder="Buscar..." matInput>
+</mat-form-field>
+
+<mat-form-field appearance="legacy">
+    <mat-label>Filtrar (legacy):</mat-label>
+    <input type="text" placeholder="Buscar..." matInput>
+</mat-form-field>
+<mat-form-field appearance="fill">
+    <mat-label>Filtrar (fill):</mat-label>
+    <input type="text" placeholder="Buscar..." matInput>
+</mat-form-field>
+<mat-form-field appearance="outline">
+    <mat-label>Filtrar (outline):</mat-label>
+    <input type="text" placeholder="Buscar..." matInput>
+</mat-form-field>
+<mat-form-field appearance="standard">
+    <mat-label>Filtrar (standard):</mat-label>
+    <input type="text" placeholder="Buscar..." matInput>
+</mat-form-field>
+
+<div class="row">
+    <div *ngFor="let curso of cursos" class="col-md-3">
+       <mat-card>
+            <mat-card-title>{{ curso.nombre }}</mat-card-title>
+            <mat-card-subtitle>Impartido por {{ curso.profesor }}</mat-card-subtitle>
+            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="foto de perrito shibu">
+            <mat-card-content>Comision: {{ curso.comision }}</mat-card-content>
+            <mat-card-actions align="end">
+                <button mat-button>Compartir</button>
+                <button mat-flat-button color="primary">Inscribirme</button>
+            </mat-card-actions>
+       </mat-card> 
+    </div>
+</div>
