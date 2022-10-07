@@ -1,0 +1,72 @@
+<h1>Table de Cursos</h1>
+
+<div class="row">
+    <mat-form-field class="col-md-6">
+        <mat-label>Filtrar por nombre del curso</mat-label>
+        <input type="text" matInput (keyup)="filtrarCurso($event)">
+    </mat-form-field>
+
+    <mat-form-field class="col-md-6">
+        <mat-label>Filtrar por numero de comision</mat-label>
+        <input type="text" matInput (keyup)="filtrarComision($event)">
+    </mat-form-field>
+</div>
+
+
+<div class="row">
+    <table mat-table [dataSource]="dataSource" class="col-md-12">
+        <!-- 'nombre' -->
+        <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let curso">{{ curso.nombre | uppercase }}</td>
+        </ng-container>
+
+        <!-- 'comision' -->
+        <ng-container matColumnDef="comision">
+            <th mat-header-cell *matHeaderCellDef>Comision</th>
+            <td mat-cell *matCellDef="let curso">{{ curso.comision }}</td>
+        </ng-container>
+
+        <!-- 'profesor' -->
+        <ng-container matColumnDef="profesor">
+            <th mat-header-cell *matHeaderCellDef>Profesor</th>
+            <td mat-cell *matCellDef="let curso">{{ curso.profesor }}</td>
+        </ng-container>
+        
+        <!-- 'fechaInicio' -->
+        <ng-container matColumnDef="fechaInicio">
+            <th mat-header-cell *matHeaderCellDef>Inicia</th>
+            <td mat-cell *matCellDef="let curso">{{ curso.fechaInicio | date: 'dd/MM/YYYY' }}</td>
+        </ng-container>
+        
+        <!-- 'fechaFin' -->
+        <ng-container matColumnDef="fechaFin">
+            <th mat-header-cell *matHeaderCellDef>Finaliza</th>
+            <td mat-cell *matCellDef="let curso">{{ curso.fechaFin | date: 'dd/MM/YYYY' }}</td>
+        </ng-container>
+        
+        <!-- 'inscripcionAbierta' -->
+        <ng-container matColumnDef="inscripcionAbierta">
+            <th mat-header-cell *matHeaderCellDef>Inscripcion Abierta</th>
+            <td mat-cell *matCellDef="let curso">
+                <span [appBooleanoEstilo]="curso.inscripcionAbierta"> {{ curso.inscripcionAbierta | booleanATexto: 'Si': 'No' }} </span>
+            </td>
+        </ng-container>
+        
+        <!-- 'acciones' -->
+        <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef>
+                <button mat-icon-button (click)="editar()">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button>
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnas"></tr>
+    </table>
+</div>

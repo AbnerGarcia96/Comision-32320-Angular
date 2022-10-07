@@ -1,0 +1,39 @@
+<h1>Lista de cursos</h1>
+
+<div class="row">
+    <mat-form-field class="col-md-6">
+        <mat-label>Filtrar por nombre del curso</mat-label>
+        <input type="text" matInput [(ngModel)]="filtro">
+    </mat-form-field>
+</div>
+
+<div class="row">
+
+
+<div *ngFor="let curso of cursos | filtroCursos: filtro" class="col-md-3">
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{ curso.nombre }}</mat-card-title>
+        <mat-card-subtitle>{{ curso.comision }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <img mat-card-image [src]="curso.imagen" alt="coderhouse">
+
+    <mat-card-content>
+        <p>Impartido por {{ curso.profesor }}</p>
+        <p>Inicial el {{ curso.fechaInicio | date: 'dd/MM/YYYY' }}</p>
+        <p>Finaliza el {{ curso.fechaFin | date: 'dd/MM/YYYY' }}</p>
+        <p [appBooleanoEstilo]="curso.inscripcionAbierta">{{ curso.inscripcionAbierta | booleanATexto: 'Matricula abierta' : 'Matricula cerrada' | uppercase }}</p>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+        <button mat-icon-button color="primary">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </mat-card-actions>
+</mat-card>
+</div>
+</div>
