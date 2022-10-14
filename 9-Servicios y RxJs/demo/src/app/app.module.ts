@@ -25,7 +25,7 @@ import { config, token } from './config';
     MaterialModule
   ],
   providers: [
-    // {provide: CursoService, useExisting: CursoAlphaService},
+    {provide: CursoService, useExisting: CursoAlphaService},
     // {provide: CursoService, useClass: CursoAlphaService},
     // {provide: CursoService, useValue: cursos},
     // {provide: CursoService, useFactory: () => {

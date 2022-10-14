@@ -12,11 +12,12 @@ export class CursosComponent implements OnInit {
   cursos!: Curso[];
   
   constructor(
-    private cursoService: CursoService,
-    private cursoAlphaService: CursoAlphaService
+    private cursoServiceNuevo: CursoAlphaService,
+    private cursoService: CursoService
   ) {
-    console.dir(cursoService);
-    console.dir(cursoAlphaService);
+    cursoService.obtenerCursos();
+    cursoServiceNuevo.obtenerCursos();
+    console.log(cursoService == cursoServiceNuevo);
   }
 
   ngOnInit(): void {

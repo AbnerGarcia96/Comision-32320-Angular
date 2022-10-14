@@ -5,8 +5,12 @@ import { Curso } from '../models/curso';
   providedIn: 'root'
 })
 export class CursoService {
-  private cursos: Curso[] = [
-    {
+  private cursos: Curso[] = [];
+  
+  constructor() { }
+
+  obtenerCursos(): Curso[]{
+    this.cursos = [{
       nombre: 'Angular',
       comision: '32310',
       profesor: 'Keven',
@@ -65,12 +69,7 @@ export class CursoService {
         usuario: 'pgarcia',
         contrasena: '123'
       }]
-    },
-  ];
-  
-  constructor() { }
-
-  obtenerCursos(): Curso[]{
+    }];
     return this.cursos;
   }
 
