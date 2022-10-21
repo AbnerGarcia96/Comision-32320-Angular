@@ -1,0 +1,31 @@
+<h1>Lista de cursos</h1>
+
+<div class="row">
+
+
+<div *ngFor="let curso of cursos$ | async" class="col-md-3">
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{ curso.nombre }}</mat-card-title>
+        <mat-card-subtitle>{{ curso.comision }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <img mat-card-image [src]="curso.imagen" alt="coderhouse">
+
+    <mat-card-content>
+        <p>Impartido por {{ curso.profesor }}</p>
+        <p>Inicial el {{ curso.fechaInicio | date: 'dd/MM/YYYY' }}</p>
+        <p>Finaliza el {{ curso.fechaFin | date: 'dd/MM/YYYY' }}</p>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+        <button mat-icon-button color="primary" (click)="editarCurso(curso)">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="eliminarCurso(curso.id)">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </mat-card-actions>
+</mat-card>
+</div>
+</div>
