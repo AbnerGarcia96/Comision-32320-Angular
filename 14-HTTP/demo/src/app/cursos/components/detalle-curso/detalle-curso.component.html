@@ -1,0 +1,11 @@
+<h1>Detalle de curso</h1>
+
+<div *ngIf="(curso$ | async)">
+    <pre>
+    {{ curso$ | async | json }}
+    </pre>
+</div>
+
+<div *ngIf="!(curso$ | async)">
+    <p>No se encontró el curso</p>
+</div>
