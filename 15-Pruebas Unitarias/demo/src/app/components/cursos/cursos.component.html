@@ -1,0 +1,14 @@
+<h1>Cursos Component</h1>
+
+<form [formGroup]="formulario" (ngSubmit)="agregarCurso()">
+    <input type="text" placeholder="Nombre del curso" formControlName="nombre">
+    <input type="text" placeholder="Comision" formControlName="comision">
+    <button type="submit" id="btnAgregar">Agregar curso</button>
+</form>
+
+<div id="lista-cursos">
+    Cursos:
+    <pre>
+        {{ cursos | json }}
+    </pre>
+</div>
