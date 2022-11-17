@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Editar inscripcion</h1>
+<div mat-dialog-content>
+    <form [formGroup]="formulario">
+        <mat-form-field appearance="fill" class="fill">
+            <mat-label>Seleccione un curso</mat-label>
+            <mat-select formControlName="curso">
+                <mat-option *ngFor="let curso of cursos$ | async" [value]="curso">{{ curso.nombre }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="cancelar()">Cancelar</button>
+    <button mat-raised-button (click)="editar()">Editar</button>
+</div>
